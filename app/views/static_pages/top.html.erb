@@ -1,0 +1,9 @@
+<p>テスト</p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("p").text("トップページだよ");
+  });
+</script>
+<%# HTMLファイルに直接jaqueryの記述を書き込むときには、scriptタグをつけてもいいしつけなくても反応するみたい %>
+<%# あとdocument以下の記述に関しては$(document).ready() はJavaScriptコードが実行されるタイミングを制御し、
+DOMが完全に読み込まれた後にコードを実行することで、正しくDOM要素を操作できるようにするため %>
