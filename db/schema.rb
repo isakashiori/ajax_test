@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_10_233737) do
+ActiveRecord::Schema.define(version: 2023_05_14_232411) do
 
   create_table "messages", force: :cascade do |t|
     t.string "title"
@@ -19,4 +19,30 @@ ActiveRecord::Schema.define(version: 2023_05_10_233737) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "post_tags", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["tag_id", "post_id"], name: "index_post_tags_on_tag_id_and_post_id", unique: true
+    t.index ["tag_id"], name: "index_post_tags_on_tag_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag"], name: "index_tags_on_tag", unique: true
+  end
+
+  add_foreign_key "post_tags", "posts"
+  add_foreign_key "post_tags", "tags"
 end
