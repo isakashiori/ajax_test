@@ -1,4 +1,6 @@
+<%= javascript_pack_tag 'tag' %>
 <h1>ポストとタグ付けテスト</h1>
+
 
 <%= form_with model: @post do |f| %>
   <%= f.label :title%> <br>
@@ -7,7 +9,7 @@
   <%= f.text_area :body%><br>
 
   <%= f.label :tag_names %><br>
-  <%= f.text_field :tag_names, placeholder: ',で区切って入力してください'  %><br>
+  <%= f.text_field :tag_names, name:'basic', placeholder: ',で区切って入力してください'  %><br>
 
   <%= f.submit %>  
 <% end %>

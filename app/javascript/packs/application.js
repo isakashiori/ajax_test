@@ -7,6 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import Tagify from "@yaireo/tagify";
+window.Tagify = Tagify;
+import "@yaireo/tagify/dist/jQuery.tagify.min";
+
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -18,3 +22,5 @@ require('jquery')
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+import "./tag.js"
+
